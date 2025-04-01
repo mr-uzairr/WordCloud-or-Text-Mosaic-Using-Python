@@ -10,4 +10,12 @@ title = wikipedia.search(a)[0] # it will search the title from wikipedia
 
 page = wikipedia.page(title)
 text = page.content # To extract the content of that topic
+print(text)
+
+bg = np.array(Image.open("Image.jpeg")) #download the background image
+unwated_words = set(STOPWORDS)
+wordclo = wordCloud(background_color = "black",max_words = 400, mask = bg, stopwords = unwated_words)
+wordclo.generate(text)
+wordclo.to_file("sample.png")
+
 
